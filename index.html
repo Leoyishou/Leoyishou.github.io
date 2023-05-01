@@ -77,6 +77,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Tools/Untitled" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/25/Tools/Untitled/" class="article-date">
+  <time class="dt-published" datetime="2023-04-25T07:10:26.187Z" itemprop="datePublished">2023-04-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="360软件可能会导致动作无法正常使用"><a href="#360软件可能会导致动作无法正常使用" class="headerlink" title="360软件可能会导致动作无法正常使用"></a>360软件可能会导致动作无法正常使用</h4><p>建议关闭360软件，或者按照链接指引设置后再使用 <a target="_blank" rel="noopener" href="https://getquicker.net/kc/help/doc/360-bug">https://getquicker.net/kc/help/doc/360-bug</a></p>
+<h4 id="界面说明"><a href="#界面说明" class="headerlink" title="界面说明"></a>界面说明</h4><ol>
+<li>初次使用设置指引，设置完成后关闭本窗口继续</li>
+<li>动作需要安装Chrome浏览器扩展【沙拉查词】，并按教程配置相应快捷键才可用</li>
+</ol>
+<h4 id="免配置方案"><a href="#免配置方案" class="headerlink" title="免配置方案"></a>免配置方案</h4><p>注：可使用免配置懒人版Chrome，集成沙拉查词，免安装，打开即用。<br><a target="_blank" rel="noopener" href="https://wpp8lmn.lanzous.com/b01br2k7e">https://wpp8lmn.lanzous.com/b01br2k7e</a></p>
+<h4 id="手动配置方案"><a href="#手动配置方案" class="headerlink" title="手动配置方案"></a>手动配置方案</h4><ol>
+<li><p>Chrome 安装扩展【沙拉查词】<a target="_blank" rel="noopener" href="https://saladict.crimx.com/%E3%80%82">https://saladict.crimx.com/。</a></p>
+</li>
+<li><p>浏览器打开 chrome:&#x2F;&#x2F;extensions&#x2F;shortcuts → 找到【沙拉查词 - 聚合词典划词翻译】设置</p>
+</li>
+<li><p>【在独立窗口中搜索剪贴板内容】设置快捷键 alt+L，右侧选择全局</p>
+</li>
+<li><p>手动按下快捷键能否正常使用，如未生效请重启浏览器，或者复制文本后再按下快捷键。</p>
+</li>
+<li><p>更多进阶玩法请看 <a target="_blank" rel="noopener" href="https://github.com/crimx/ext-saladict/issues/493">https://github.com/crimx/ext-saladict/issues/493</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/25/Tools/Untitled/" data-id="clh4s9tub00010otu1c4i5nxv" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Learn from ChatGPT/obsidian_to_anki regex config" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/04/25/Learn%20from%20ChatGPT/obsidian_to_anki%20regex%20config/" class="article-date">
@@ -91,9 +137,15 @@
       
         <p>![[Pasted image 20230425002429.png]]</p>
 <p>To create a regex pattern that matches the text structure you provided, where the front of the flashcard is on one line and the back of the flashcard is on the next line, you can use the following regex pattern:</p>
+<!--ID: 1682402866458-->
+
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(.+)\n\n(.+)</span><br></pre></td></tr></table></figure>
 
 <p>Here’s a breakdown of the regex pattern:</p>
+<!--ID: 1682402866463-->
+
+
 <ul>
 <li><code>^</code>: matches the beginning of a line.</li>
 <li><code>(.+)</code>: captures one or more characters (the <code>+</code> quantifier). The first group represents the front of the flashcard.</li>
@@ -101,12 +153,20 @@
 <li><code>(.+)</code>: captures one or more characters (the <code>+</code> quantifier). The second group represents the back of the flashcard.</li>
 </ul>
 <p>Please note that this regex pattern assumes that there is always a blank line between the front and back of the flashcards. If the structure of your text changes, you may need to adjust the pattern accordingly.</p>
+<!--ID: 1682402866467-->
+
+
 <blockquote>
 <p>I test the regex<br>![[Pasted image 20230425000744.png]]![[Pasted image 20230425000744.png]]</p>
 </blockquote>
 <p>![[Pasted image 20230425002358.png]]</p>
 <blockquote>
-<p>I test again, It still works!<br>![[Pasted image 20230425002206.png]]<br>I build my obsidian to anki work stream sucessfully!<br>![[Pasted image 20230425002640.png]]<br>![[Pasted image 20230425011549.png]]</p>
+<p>I test again, It still works!</p>
+</blockquote>
+<!--ID: 1682402866471-->
+
+<blockquote>
+<p>![[Pasted image 20230425002206.png]]<br>I build my obsidian to anki work stream sucessfully!<br>![[Pasted image 20230425002640.png]]<br>![[Pasted image 20230425011549.png]]</p>
 </blockquote>
 
       
@@ -310,9 +370,9 @@
 
 
   
-    <article id="post-build a blog using GitHub and Hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-Learn from ChatGPT/build a blog using GitHub and Hexo" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/04/23/build%20a%20blog%20using%20GitHub%20and%20Hexo/" class="article-date">
+    <a href="/2023/04/23/Learn%20from%20ChatGPT/build%20a%20blog%20using%20GitHub%20and%20Hexo/" class="article-date">
   <time class="dt-published" datetime="2023-04-23T09:30:30.066Z" itemprop="datePublished">2023-04-23</time>
 </a>
     
@@ -324,7 +384,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/04/23/build%20a%20blog%20using%20GitHub%20and%20Hexo/">build a blog using GitHub and Hexo</a>
+      <a class="p-name article-title" href="/2023/04/23/Learn%20from%20ChatGPT/build%20a%20blog%20using%20GitHub%20and%20Hexo/">build a blog using GitHub and Hexo</a>
     </h1>
   
 
@@ -332,8 +392,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>To build a blog using GitHub and Hexo</p>
-<ul>
+        <h1 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h1><ul>
 <li>what is node.js</li>
 <li>what is hexo</li>
 <li>in the blog, what roles do different tools play?</li>
@@ -341,44 +400,43 @@
 <li>how can i make it more fancy?</li>
 </ul>
 <p>note: there are two repos in the building of project. one(name.github.io) is for the deployment, the other is for the storeration of code.</p>
-<p>To build a blog using GitHub and Hexo, follow these steps:</p>
-<ol>
+<h1 id="To-build-a-blog-using-GitHub-and-Hexo-follow-these-steps"><a href="#To-build-a-blog-using-GitHub-and-Hexo-follow-these-steps" class="headerlink" title="To build a blog using GitHub and Hexo, follow these steps:"></a>To build a blog using GitHub and Hexo, follow these steps:</h1><ol>
 <li><strong>Install Node.js and Git:</strong></li>
 </ol>
 <p>Hexo is built on Node.js, so you will need to install it on your local machine. Visit the Node.js website (<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org/</a>) to download and install the latest version of Node.js. Also, ensure you have Git installed on your machine (<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>).</p>
-<ol>
+<ol start="2">
 <li><strong>Install Hexo:</strong></li>
 </ol>
 <p>Open a terminal (or command prompt) and install Hexo using the following command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<ol>
+<ol start="3">
 <li><strong>Create a new Hexo project:</strong></li>
 </ol>
 <p>In the terminal, navigate to the directory where you want to create your blog and run the following command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init my-blog</span><br></pre></td></tr></table></figure>
 
 <p>Replace <code>my-blog</code> with the desired name for your blog directory. This command will create a new Hexo project in the specified directory.</p>
-<ol>
+<ol start="4">
 <li><strong>Install dependencies:</strong></li>
 </ol>
 <p>Navigate to the new project directory and install the necessary dependencies:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<ol>
+<ol start="5">
 <li><strong>Run the Hexo server:</strong></li>
 </ol>
 <p>Start the Hexo server to preview your blog:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 
 <p>By default, your blog will be accessible at <code>http://localhost:4000</code>.</p>
-<ol>
+<ol start="6">
 <li><strong>Customize your blog:</strong></li>
 </ol>
 <p>Edit the <code>_config.yml</code> file in the project directory to customize your blog’s settings, such as title, description, and theme. You can also create new posts and pages using the following commands:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;Your Post Title&quot;</span><br><span class="line">hexo new page &quot;Your Page Title&quot;</span><br></pre></td></tr></table></figure>
 
-<ol>
+<ol start="7">
 <li><strong>Deploy your blog to GitHub Pages:</strong></li>
 </ol>
 <p>First, install the Hexo GitHub Pages deployment plugin:</p>
@@ -401,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/23/build%20a%20blog%20using%20GitHub%20and%20Hexo/" data-id="clgv50v2a0002kstudlicfmos" data-title="build a blog using GitHub and Hexo" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/04/23/Learn%20from%20ChatGPT/build%20a%20blog%20using%20GitHub%20and%20Hexo/" data-id="clh4s9tu800000otudfme40su" data-title="build a blog using GitHub and Hexo" class="article-share-link">Share</a>
       
       
       
@@ -495,6 +553,10 @@
       <ul>
         
           <li>
+            <a href="/2023/04/25/Tools/Untitled/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/25/Learn%20from%20ChatGPT/obsidian_to_anki%20regex%20config/">(no title)</a>
           </li>
         
@@ -508,10 +570,6 @@
         
           <li>
             <a href="/2023/04/25/2023-04-25/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">(no title)</a>
           </li>
         
       </ul>
