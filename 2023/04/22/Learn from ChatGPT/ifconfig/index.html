@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>knowledge of ifconfig | Leo&#39;s Blog！！！</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1i&amp;#x27;m a linux learner, i want you teach me something about internet . could you explain me the following content in easy to understand way?      Sure! What you’re looking at is the output of a com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="knowledge of ifconfig">
+<meta property="og:url" content="http://example.com/2023/04/22/Learn%20from%20ChatGPT/ifconfig/index.html">
+<meta property="og:site_name" content="Leo&#39;s Blog！！！">
+<meta property="og:description" content="1i&amp;#x27;m a linux learner, i want you teach me something about internet . could you explain me the following content in easy to understand way?      Sure! What you’re looking at is the output of a com">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-01T12:23:54.786Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="tag1">
+<meta property="article:tag" content="tag2">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Leo's Blog！！！" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Leo&#39;s Blog！！！</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Programming &amp; English learning</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Learn from ChatGPT/ifconfig" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/22/Learn%20from%20ChatGPT/ifconfig/" class="article-date">
+  <time class="dt-published" datetime="2023-04-21T16:00:00.000Z" itemprop="datePublished">2023-04-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      knowledge of ifconfig
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i&#x27;m a linux learner, i want you teach me something about internet . could you explain me the following content in easy to understand way?    </span><br></pre></td></tr></table></figure>
+
+<p>Sure! What you’re looking at is the output of a command that displays information about the network interfaces on a Linux system. This output shows details for four network interfaces: <code>docker0</code>, <code>ens33</code>, <code>lo</code>, and <code>veth557dd78</code>.</p>
+<p>Let’s break down each section in simpler terms:</p>
+<ol>
+<li><p><code>docker0</code>: This is a virtual network interface created by Docker, a container platform. The information provided includes:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        inet6 fe80::42:46ff:fe73:fc6c  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 02:42:46:73:<span class="built_in">fc</span>:6c  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 36  bytes 4946 (4.9 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ens33</code>: This is a physical Ethernet interface connected to the system. The information provided includes:</p>
+</li>
+<li><p><code>lo</code>: This is the loopback interface, which is a virtual network interface that allows the system to communicate with itself. </p>
+</li>
+<li><p><code>veth557dd78</code>: This is another virtual Ethernet interface, likely associated with a Docker container.</p>
+</li>
+</ol>
+<p>In summary, this output provides information about the network interfaces on your system, including IP addresses, subnet masks, broadcast addresses, and details about received and transmitted packets.</p>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">physical Ethernet interface    loopback interface,  virtual Ethernet interface, MAC address  i don&#x27;t know these terms</span><br></pre></td></tr></table></figure>
+
+<p>I understand. Let me explain these terms in a simpler way:</p>
+<ol>
+<li><p><strong>Physical Ethernet interface</strong>: This is a hardware component that connects your computer to a wired network, usually using an Ethernet cable. The Ethernet interface handles sending and receiving data between your computer and the network. An example of a physical Ethernet interface is the <code>ens33</code> interface from the output you provided.</p>
+</li>
+<li><p><strong>Loopback interface</strong>: This is a special virtual network interface that allows your computer to communicate with itself. It is mainly used for testing and troubleshooting purposes. The IP address assigned to the loopback interface is usually <code>127.0.0.1</code> for IPv4 and <code>::1</code> for IPv6. The <code>lo</code> interface from the output you provided is a loopback interface.</p>
+</li>
+<li><p><strong>Virtual Ethernet interface</strong>: This is a software-created network interface that emulates the behavior of a physical Ethernet interface. Virtual Ethernet interfaces are often used in virtualization and containerization technologies, like Docker, to provide network connectivity for virtual machines or containers. An example of a virtual Ethernet interface is the <code>docker0</code> interface from the output you provided.</p>
+</li>
+<li><p><strong>MAC address</strong>: A Media Access Control (MAC) address is a unique identifier assigned to a network interface. It is used to identify devices on a network at the data link layer (Layer 2) of the OSI model. MAC addresses are 48 bits in length and are usually represented as six groups of two hexadecimal digits, separated by colons or hyphens (e.g., <code>02:42:46:73:fc:6c</code>). Every network interface, whether physical or virtual, has a MAC address.</p>
+</li>
+</ol>
+<hr>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">above is my virtual machine&#x27;s information, following is my real pc&#x27;s information, tell me their relationship and other details what are helpful to my learning :Windows IP Configuration</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Windows IP Configuration</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Ethernet adapter Ethernet:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 1:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 2:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::9a10:ed69:ef20:bf29%5</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.141.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet8: </span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::b288:751e:149a:1576%7</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.255.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Wi-Fi:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::d68c:caed:21ae:5496%11</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.31.56</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . : 192.168.31.1</span><br><span class="line"></span><br><span class="line">Ethernet adapter Bluetooth Network Connection:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br></pre></td></tr></table></figure>
+
+<p>The information you provided shows the network interfaces on your real PC, which is running Windows. There are several network interfaces listed, including Ethernet, Wireless LAN (Wi-Fi), and virtual network interfaces created by VMware. Let’s look at the relationship between your real PC and the virtual machine (VM) you mentioned earlier, as well as other useful details for your learning.</p>
+<ol>
+<li><p><strong>Ethernet adapter Ethernet</strong>: This is the physical Ethernet interface on your real PC. It is currently disconnected (Media State: Media disconnected).</p>
+</li>
+<li><p><em><em>Wireless LAN adapters (Local Area Connection</em> 1, Local Area Connection</em> 2, Wi-Fi)**: These are the Wi-Fi interfaces on your real PC. Only the Wi-Fi adapter is connected and has an IP address (IPv4 Address: 192.168.31.56) and a default gateway (192.168.31.1).</p>
+</li>
+<li><p><strong>Ethernet adapter VMware Network Adapter VMnet1 &amp; VMnet8</strong>: These are virtual network interfaces created by VMware, a virtualization software. They provide network connectivity between your real PC and the virtual machines running on VMware. The IP addresses assigned to these interfaces are 192.168.141.1 and 192.168.255.1, respectively.</p>
+</li>
+<li><p><strong>Ethernet adapter Bluetooth Network Connection</strong>: This is a network interface related to Bluetooth connectivity. It is currently disconnected (Media State: Media disconnected).</p>
+</li>
+</ol>
+<p>Now let’s discuss the relationship between your real PC and the virtual machine:</p>
+<ul>
+<li>Your real PC is running VMware, which hosts your Linux virtual machine. </li>
+<li>The virtual machine is connected to your real PC through virtual network interfaces (VMware Network Adapter VMnet1 and VMnet8).</li>
+<li>The <code>ens33</code> interface on your virtual machine is connected to the VMware Network Adapter VMnet8 on your real PC. We can tell this by the matching IP address subnet (192.168.255.x).</li>
+</ul>
+<p>In summary, your real PC has several network interfaces, including physical Ethernet, Wi-Fi, and virtual network interfaces created by VMware. The virtual machine hosted on VMware is connected to your real PC through one of these virtual network interfaces. By understanding the relationship between the network interfaces on your real PC and the virtual machine, you can gain a better understanding of how network connectivity is established between them.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/22/Learn%20from%20ChatGPT/ifconfig/" data-id="clh4tbouc0005cgtucvqa15th" data-title="knowledge of ifconfig" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tag1/" rel="tag">tag1</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tag2/" rel="tag">tag2</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/04/23/Learn%20from%20ChatGPT/Markdown%20Syntax/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Markdown Syntax
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/tag1/" rel="tag">tag1</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tag2/" rel="tag">tag2</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/tag1/" style="font-size: 10px;">tag1</a> <a href="/tags/tag2/" style="font-size: 10px;">tag2</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/04/25/Tools/Untitled/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/25/Learn%20from%20ChatGPT/obsidian_to_anki%20regex%20config/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/25/The%20Road%20to%20English%20Expression/April%2020,%202023/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/25/Learn%20from%20ChatGPT/Senario%20to%20use%20ChatGpt/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/04/25/2023-04-25/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
