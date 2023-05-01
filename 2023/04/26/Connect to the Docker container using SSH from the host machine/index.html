@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Leo&#39;s Blog！！！</title>
+  <title>Connect to the Docker container using SSH from the host machine | Leo&#39;s Blog！！！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1title:  Connect to the Docker container using SSH from the host machine  在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，">
+  <meta name="description" content="在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开  dockerfile？   docker build？    Create a Docke">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leo&#39;s Blog！！！">
-<meta property="og:url" content="http://example.com/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/index.html">
+<meta property="og:title" content="Connect to the Docker container using SSH from the host machine">
+<meta property="og:url" content="http://example.com/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/index.html">
 <meta property="og:site_name" content="Leo&#39;s Blog！！！">
-<meta property="og:description" content="1title:  Connect to the Docker container using SSH from the host machine  在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，">
+<meta property="og:description" content="在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开  dockerfile？   docker build？    Create a Docke">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-23T09:53:59.888Z">
-<meta property="article:modified_time" content="2023-04-24T16:03:07.843Z">
+<meta property="article:published_time" content="2023-04-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-01T12:42:25.176Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -77,21 +77,33 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-x title  Connect to the Docker container using SSH from the host machine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-Connect to the Docker container using SSH from the host machine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" class="article-date">
-  <time class="dt-published" datetime="2023-04-23T09:53:59.888Z" itemprop="datePublished">2023-04-23</time>
+    <a href="/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" class="article-date">
+  <time class="dt-published" datetime="2023-04-25T16:00:00.000Z" itemprop="datePublished">2023-04-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CS/">CS</a>►<a class="article-category-link" href="/categories/CS/network/">network</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Connect to the Docker container using SSH from the host machine
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title:  Connect to the Docker container using SSH from the host machine</span><br></pre></td></tr></table></figure>
-
-<p>在容器中下载好ssh</p>
+        <p>在容器中下载好ssh</p>
 <ul>
 <li><p>I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑，</p>
 <p>而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑</p>
@@ -134,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" data-id="clgv50v2a0003kstu30404itl" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" data-id="clh4tyzmq0000yctud9bg5h3r" data-title="Connect to the Docker container using SSH from the host machine" class="article-share-link">Share</a>
       
       
       
@@ -144,19 +156,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/04/25/2023-04-25/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/04/28/Learn%20from%20ChatGPT/obsidian_to_anki%20regex%20config/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          obsidian_to_anki regex config
         
       </div>
     </a>
   
   
-    <a href="/2023/04/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/04/25/Tools/Untitled/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World！</div>
+      <div class="article-nav-title"></div>
     </a>
   
 </nav>
@@ -173,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/tools/">tools</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/tools/">tools</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -223,15 +235,15 @@
           </li>
         
           <li>
+            <a href="/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">Connect to the Docker container using SSH from the host machine</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/25/Tools/Untitled/">(no title)</a>
           </li>
         
           <li>
             <a href="/2023/04/25/2023-04-25/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">(no title)</a>
           </li>
         
       </ul>

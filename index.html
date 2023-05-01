@@ -199,6 +199,87 @@
 
 
   
+    <article id="post-Connect to the Docker container using SSH from the host machine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" class="article-date">
+  <time class="dt-published" datetime="2023-04-25T16:00:00.000Z" itemprop="datePublished">2023-04-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CS/">CS</a>►<a class="article-category-link" href="/categories/CS/network/">network</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">Connect to the Docker container using SSH from the host machine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在容器中下载好ssh</p>
+<ul>
+<li><p>I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑，</p>
+<p>而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑</p>
+<p>本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开</p>
+</li>
+<li><p>dockerfile？ </p>
+</li>
+<li><p>docker build？</p>
+</li>
+</ul>
+<ol>
+<li>Create a Dockerfile:</li>
+</ol>
+<p>Create a new file called <code>Dockerfile</code> in a directory. This file will contain instructions to build a Docker image with SSH enabled.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use an existing image as the base</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install OpenSSH server</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y openssh-server</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the /var/run/sshd directory (for privilege separation)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /var/run/sshd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the root password for SSH access</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;root:YOUR_PASSWORD&#x27;</span> | chpasswd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose the SSH port</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">22</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the SSH server</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/usr/sbin/sshd&quot;</span>, <span class="string">&quot;-D&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>YOUR_PASSWORD</code> with a secure password of your choice.</p>
+<ol>
+<li>Build the Docker image:</li>
+</ol>
+<p>Navigate to the directory containing the <code>Dockerfile</code> and run the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my_ssh_container .</span><br></pre></td></tr></table></figure>
+
+<p>This will create a new Docker image named <code>my_ssh_container</code> with SSH enabled.</p>
+<ol>
+<li>Run the Docker container:</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 2222:22 --name my_ssh_container_instance my_ssh_container</span><br></pre></td></tr></table></figure>
+
+<p>This command will start a new container named <code>my_ssh_container_instance</code> based on the <code>my_ssh_container</code> image. It maps the container’s port 22 (SSH) to the host’s port 2222.</p>
+<ol>
+<li>Connect to the Docker container via SSH:</li>
+</ol>
+<p>From the host machine or another computer, you can now connect to the Docker container using SSH:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost -p 2222</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>localhost</code> with the IP address of the host machine if you’re connecting from another computer. Enter the password you set in the Dockerfile when prompted.</p>
+<p>You should now have SSH access to your Docker container. Note that this method is not recommended for production environments, as it has security implications. For production, consider using <code>docker exec</code> to access the container or setting up proper user authentication and key-based authentication for SSH.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" data-id="clh4tyzmq0000yctud9bg5h3r" data-title="Connect to the Docker container using SSH from the host machine" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Tools/Untitled" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/04/25/Tools/Untitled/" class="article-date">
@@ -244,75 +325,6 @@
     </div>
     <footer class="article-footer">
       <a data-url="http://example.com/2023/04/25/2023-04-25/" data-id="clgv50v280001kstu1us1hluc" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-x title  Connect to the Docker container using SSH from the host machine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" class="article-date">
-  <time class="dt-published" datetime="2023-04-23T09:53:59.888Z" itemprop="datePublished">2023-04-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">title:  Connect to the Docker container using SSH from the host machine</span><br></pre></td></tr></table></figure>
-
-<p>在容器中下载好ssh</p>
-<ul>
-<li><p>I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑，</p>
-<p>而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑</p>
-<p>本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开</p>
-</li>
-<li><p>dockerfile？ </p>
-</li>
-<li><p>docker build？</p>
-</li>
-</ul>
-<ol>
-<li>Create a Dockerfile:</li>
-</ol>
-<p>Create a new file called <code>Dockerfile</code> in a directory. This file will contain instructions to build a Docker image with SSH enabled.</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use an existing image as the base</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install OpenSSH server</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y openssh-server</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the /var/run/sshd directory (for privilege separation)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /var/run/sshd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the root password for SSH access</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;root:YOUR_PASSWORD&#x27;</span> | chpasswd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose the SSH port</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">22</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the SSH server</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/usr/sbin/sshd&quot;</span>, <span class="string">&quot;-D&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>Replace <code>YOUR_PASSWORD</code> with a secure password of your choice.</p>
-<ol>
-<li>Build the Docker image:</li>
-</ol>
-<p>Navigate to the directory containing the <code>Dockerfile</code> and run the following command:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my_ssh_container .</span><br></pre></td></tr></table></figure>
-
-<p>This will create a new Docker image named <code>my_ssh_container</code> with SSH enabled.</p>
-<ol>
-<li>Run the Docker container:</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 2222:22 --name my_ssh_container_instance my_ssh_container</span><br></pre></td></tr></table></figure>
-
-<p>This command will start a new container named <code>my_ssh_container_instance</code> based on the <code>my_ssh_container</code> image. It maps the container’s port 22 (SSH) to the host’s port 2222.</p>
-<ol>
-<li>Connect to the Docker container via SSH:</li>
-</ol>
-<p>From the host machine or another computer, you can now connect to the Docker container using SSH:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost -p 2222</span><br></pre></td></tr></table></figure>
-
-<p>Replace <code>localhost</code> with the IP address of the host machine if you’re connecting from another computer. Enter the password you set in the Dockerfile when prompted.</p>
-<p>You should now have SSH access to your Docker container. Note that this method is not recommended for production environments, as it has security implications. For production, consider using <code>docker exec</code> to access the container or setting up proper user authentication and key-based authentication for SSH.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" data-id="clgv50v2a0003kstu30404itl" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -756,7 +768,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/tools/">tools</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/network/">network</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/tools/">tools</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li></ul>
     </div>
   </div>
 
@@ -806,15 +818,15 @@
           </li>
         
           <li>
+            <a href="/2023/04/26/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">Connect to the Docker container using SSH from the host machine</a>
+          </li>
+        
+          <li>
             <a href="/2023/04/25/Tools/Untitled/">(no title)</a>
           </li>
         
           <li>
             <a href="/2023/04/25/2023-04-25/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2023/04/23/x%20title%20%20Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/">(no title)</a>
           </li>
         
       </ul>
