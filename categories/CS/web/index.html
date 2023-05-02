@@ -6,16 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Leo&#39;s Blog！！！">
-    <title>Leo&#39;s Blog！！！</title>
+    <title>Category: web - Leo&#39;s Blog！！！</title>
     <meta name="author" content="John Doe">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"http://example.com","author":{"@type":"Person","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"name":"Leo's Blog！！！","description":"writing something about programming, English learning and some free experience","url":"http://example.com"}</script>
+    <script type="application/ld+json">{}</script>
     <meta name="description" content="writing something about programming, English learning and some free experience">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Leo&#39;s Blog！！！">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:url" content="http://example.com/categories/CS/web/index.html">
 <meta property="og:site_name" content="Leo&#39;s Blog！！！">
 <meta property="og:description" content="writing something about programming, English learning and some free experience">
 <meta property="og:locale" content="en_US">
@@ -316,7 +316,8 @@
                  class="
                         hasCoverMetaIn
                         ">
-                <section class="postShorten-group main-content-wrap">
+                
+    <section class="postShorten-group main-content-wrap">
     
     
     <article class="postShorten postShorten--thumbnailimg-bottom">
@@ -327,23 +328,23 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2023/04/22/CS/network/knowledge%20of%20ifconfig/"
-                            aria-label=": knowledge of ifconfig"
+                            href="/2023/05/02/CS/WEB/change%20hexo%20theme/"
+                            aria-label=": change hexo theme"
                         >
-                            knowledge of ifconfig
+                            change hexo theme
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2023-04-22T00:00:00+08:00">
+    <time datetime="2023-05-02T00:00:00+08:00">
 	
-		    Apr 22, 2023
+		    May 02, 2023
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/network/">network</a>
+    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/web/">web</a>
 
 
     
@@ -352,60 +353,34 @@
             </div>
             
                 <div class="postShorten-content">
-                    <hr>
-<p><strong>i’m a linux learner, i want you teach me something about internet . could you explain me the following content in easy to understand way?</strong>    </p>
+                    <h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><h2 id="From-ChatGPT"><a href="#From-ChatGPT" class="headerlink" title="From ChatGPT"></a>From ChatGPT</h2><hr>
+<p>how can i change hexo theme in my project</p>
 <hr>
-<p>Sure! What you’re looking at is the output of a command that displays information about the network interfaces on a Linux system. This output shows details for four network interfaces: <code>docker0</code>, <code>ens33</code>, <code>lo</code>, and <code>veth557dd78</code>.</p>
-<p>Let’s break down each section in simpler terms:</p>
+<p>Hexo is a static site generator built on Node.js, and it allows you to change the theme of your project easily. To change the Hexo theme, follow these steps:</p>
 <ol>
-<li><p><code>docker0</code>: This is a virtual network interface created by Docker, a container platform. The information provided includes:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        inet6 fe80::42:46ff:fe73:fc6c  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 02:42:46:73:<span class="built_in">fc</span>:6c  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 36  bytes 4946 (4.9 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+<li><p><strong>Find a theme</strong>: Visit the Hexo theme repository (<a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a>) or search for Hexo themes on GitHub to find a theme that you like.</p>
 </li>
-<li><p><code>ens33</code>: This is a physical Ethernet interface connected to the system. The information provided includes:</p>
+<li><p><strong>Download the theme</strong>: Once you have found a theme, download it or clone the theme’s repository to your computer. To clone the repository using Git, open a terminal or command prompt, navigate to the <code>themes</code> directory inside your Hexo project, and run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/username/theme-name.git</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>https://github.com/username/theme-name.git</code> with the actual Git URL of the theme repository.</p>
 </li>
-<li><p><code>lo</code>: This is the loopback interface, which is a virtual network interface that allows the system to communicate with itself. </p>
+<li><p><strong>Configure the theme</strong>: Open the <code>_config.yml</code> file located in the root directory of your Hexo project. Find the <code>theme</code> property and change its value to the name of the theme’s directory (the one you just cloned or downloaded). For example:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: theme-name</span><br></pre></td></tr></table></figure>
+
+<p>Make sure to save the changes in the <code>_config.yml</code> file.</p>
 </li>
-<li><p><code>veth557dd78</code>: This is another virtual Ethernet interface, likely associated with a Docker container.</p>
+<li><p><strong>Customize the theme (optional)</strong>: If you need to customize the theme, open the theme’s <code>_config.yml</code> file (located inside the theme’s directory) and make the necessary changes according to the theme’s documentation.</p>
+</li>
+<li><p><strong>Generate and preview the site</strong>: After configuring and customizing the theme, run the following commands in your terminal or command prompt to generate the site with the new theme and preview it locally:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>The local preview should be available at <code>http://localhost:4000</code> (or another port if you’ve configured it differently). Check if the new theme is applied correctly.</p>
+</li>
+<li><p><strong>Deploy the site</strong>: If everything looks good, you can deploy the site with the new theme using the <code>hexo deploy</code> command or your preferred deployment method.</p>
 </li>
 </ol>
-<p>In summary, this output provides information about the network interfaces on your system, including IP addresses, subnet masks, broadcast addresses, and details about received and transmitted packets.</p>
-<hr>
-<p><strong>physical Ethernet interface    loopback interface,  virtual Ethernet interface, MAC address  i don’t know these terms</strong></p>
-<hr>
-<p>I understand. Let me explain these terms in a simpler way:</p>
-<ol>
-<li><p><strong>Physical Ethernet interface</strong>: This is a hardware component that connects your computer to a wired network, usually using an Ethernet cable. The Ethernet interface handles sending and receiving data between your computer and the network. An example of a physical Ethernet interface is the <code>ens33</code> interface from the output you provided.</p>
-</li>
-<li><p><strong>Loopback interface</strong>: This is a special virtual network interface that allows your computer to communicate with itself. It is mainly used for testing and troubleshooting purposes. The IP address assigned to the loopback interface is usually <code>127.0.0.1</code> for IPv4 and <code>::1</code> for IPv6. The <code>lo</code> interface from the output you provided is a loopback interface.</p>
-</li>
-<li><p><strong>Virtual Ethernet interface</strong>: This is a software-created network interface that emulates the behavior of a physical Ethernet interface. Virtual Ethernet interfaces are often used in virtualization and containerization technologies, like Docker, to provide network connectivity for virtual machines or containers. An example of a virtual Ethernet interface is the <code>docker0</code> interface from the output you provided.</p>
-</li>
-<li><p><strong>MAC address</strong>: A Media Access Control (MAC) address is a unique identifier assigned to a network interface. It is used to identify devices on a network at the data link layer (Layer 2) of the OSI model. MAC addresses are 48 bits in length and are usually represented as six groups of two hexadecimal digits, separated by colons or hyphens (e.g., <code>02:42:46:73:fc:6c</code>). Every network interface, whether physical or virtual, has a MAC address.</p>
-</li>
-</ol>
-<hr>
-<p><strong>above is my virtual machine’s information, following is my real pc’s information, tell me their relationship and other details what are helpful to my learning :Windows IP Configuration</strong></p>
-<hr>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">Windows IP Configuration</span><br><span class="line"></span><br><span class="line">Ethernet adapter Ethernet:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 1:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 2:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::9a10:ed69:ef20:bf29%5</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.141.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet8: </span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::b288:751e:149a:1576%7</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.255.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Wi-Fi:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::d68c:caed:21ae:5496%11</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.31.56</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . : 192.168.31.1</span><br><span class="line"></span><br><span class="line">Ethernet adapter Bluetooth Network Connection:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br></pre></td></tr></table></figure>
-<hr>
-<p>The information you provided shows the network interfaces on your real PC, which is running Windows. There are several network interfaces listed, including Ethernet, Wireless LAN (Wi-Fi), and virtual network interfaces created by VMware. Let’s look at the relationship between your real PC and the virtual machine (VM) you mentioned earlier, as well as other useful details for your learning.</p>
-<ol>
-<li><p><strong>Ethernet adapter Ethernet</strong>: This is the physical Ethernet interface on your real PC. It is currently disconnected (Media State: Media disconnected).</p>
-</li>
-<li><p><em><em>Wireless LAN adapters (Local Area Connection</em> 1, Local Area Connection</em> 2, Wi-Fi)**: These are the Wi-Fi interfaces on your real PC. Only the Wi-Fi adapter is connected and has an IP address (IPv4 Address: 192.168.31.56) and a default gateway (192.168.31.1).</p>
-</li>
-<li><p><strong>Ethernet adapter VMware Network Adapter VMnet1 &amp; VMnet8</strong>: These are virtual network interfaces created by VMware, a virtualization software. They provide network connectivity between your real PC and the virtual machines running on VMware. The IP addresses assigned to these interfaces are 192.168.141.1 and 192.168.255.1, respectively.</p>
-</li>
-<li><p><strong>Ethernet adapter Bluetooth Network Connection</strong>: This is a network interface related to Bluetooth connectivity. It is currently disconnected (Media State: Media disconnected).</p>
-</li>
-</ol>
-<p>Now let’s discuss the relationship between your real PC and the virtual machine:</p>
-<ul>
-<li>Your real PC is running VMware, which hosts your Linux virtual machine. </li>
-<li>The virtual machine is connected to your real PC through virtual network interfaces (VMware Network Adapter VMnet1 and VMnet8).</li>
-<li>The <code>ens33</code> interface on your virtual machine is connected to the VMware Network Adapter VMnet8 on your real PC. We can tell this by the matching IP address subnet (192.168.255.x).</li>
-</ul>
-<p>In summary, your real PC has several network interfaces, including physical Ethernet, Wi-Fi, and virtual network interfaces created by VMware. The virtual machine hosted on VMware is connected to your real PC through one of these virtual network interfaces. By understanding the relationship between the network interfaces on your real PC and the virtual machine, you can gain a better understanding of how network connectivity is established between them.</p>
+<p>By following these steps, you should be able to change the theme of your Hexo project. Remember to consult the theme’s documentation for any specific instructions or requirements.</p>
 
                     
                         
@@ -415,7 +390,7 @@
                     
                         <p>
                             <a
-                                href="/2023/04/22/CS/network/knowledge%20of%20ifconfig/#post-footer"
+                                href="/2023/05/02/CS/WEB/change%20hexo%20theme/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -563,98 +538,16 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title">
-                    
-                        <a
-                            class="link-unstyled"
-                            href="/2023/04/20/English/review/April%2020,%202023/"
-                            aria-label=": review: April 20, 2023"
-                        >
-                            review: April 20, 2023
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time datetime="2023-04-20T00:00:00+08:00">
-	
-		    Apr 20, 2023
-    	
-    </time>
-    
-        <span>in </span>
-        
-    <a class="category-link" href="/categories/English/">English</a>, <a class="category-link" href="/categories/English/review/">review</a>
-
-
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content">
-                    <p>I’m afraid of I do not have no hair in the future<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>I’m afraid that I will have no hair in the future</p>
-<!--ID: 1682957470871-->
-<p>In the part of paying, there would four or five people to pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>When it came time to pay the bill, four or five people would fight over the bill.</p>
-<!--ID: 1682957470878-->
-<p>Eventually, it is that guy pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Eventually, it is still that person who pay.</p>
-<!--ID: 1682957470882-->
-<p>You would share the money, or someone would pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Will you split the bill or will one person treat everyone?</p>
-<!--ID: 1682957470886-->
-<p>We don’t care it<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>We don’t care much about it</p>
-<!--ID: 1682957470890-->
-<p>or i spent all and afterwards he send his money<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Or I can pay the entire bill, and then he can transfer the money to me later.</p>
-<!--ID: 1682957470894-->
-<p>我们没时间了<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Our time is up</p>
-<!--ID: 1682957470898-->
-
-
-                    
-                        
-
-
-                    
-                    
-                        <p>
-                            <a
-                                href="/2023/04/20/English/review/April%2020,%202023/#post-footer"
-                                class="postShorten-excerpt_link link"
-                                aria-label=""
-                            >
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
-          <li class="pagination-prev">
-            <a
-                class="btn btn--default btn--small"
-                href="/"
-                aria-label="NEWER POSTS"
-            >
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>NEWER POSTS</span>
-            </a>
-          </li>
         
-        
-        <li class="pagination-number">page 2 of 2</li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
 </section>
+
 
 
                 <footer id="footer" class="main-content-wrap">

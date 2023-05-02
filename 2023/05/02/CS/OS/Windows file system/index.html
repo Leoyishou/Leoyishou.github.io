@@ -1,48 +1,735 @@
-extends partial/layout
 
-block site_title
-    != page.title + " · " + config.title
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Leo&#39;s Blog！！！">
+    <title>Windows file system - Leo&#39;s Blog！！！</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"articleBody":"Key points\n32 and 64-bit processor architecture \nfolders in C disk in Windows\n\nFrom ChatGPT\n为什么有些软件的默认安装路径是C:\\Users\\用户名\\AppData\\Roaming? - root的回答 - 知乎 https://www.zhihu.com/question/548340950/answer/2637630471summary the above, give me the key information in English\n\nThe key differences between the directories mentioned are:\n\nC:\\Program Files - The installation directory for 64-bit software, accessible to all users. Admin permission is required to install software here. Storing program data in this directory poses a security risk.\nC:\\Program Files(x86) - Similar to the above, but for 32-bit applications.\nC:\\Users\\Username\\AppData\\Roaming - Accessed through the %AppData% environment variable, stores user-specific data. This data is synced across computers in a domain network.\nC:\\Users\\Username\\AppData\\Local - Accessed through the %LocalAppData% environment variable, stores local user data that is not synced across computers in a domain network.\nC:\\ProgramData - Contains data shared among all users. Use this directory for software data that should be consistent across users.\nC:\\Users\\Username - The user’s home directory, where personal data should be stored. Cross-platform software often generates hidden files with a dot prefix in this directory.\nC:\\Users\\Username\\Documents - The “My Documents” folder, meant for user-generated data like documents, photos, music, videos, and archives. Some software may inappropriately store program data here.\n\nThe proper separation of software installation and data storage depends on the software developer and the installation package tool. It’s important to follow guidelines and avoid storing data in incorrect locations to ensure easier data backups and software upgrades.\n\n“做到程序和数据分离，不要在程序安装目录下写数据，更不要把数据写到C:根目录Q下，简直是灾难。” why?\n\nSeparating program files and data is crucial for various reasons:\n\nOrganization and clarity: Keeping program files and data separate makes it easier to manage and locate specific files when needed. Mixing data and program files can lead to confusion and difficulty in finding essential files.\n\nSecurity: Storing data in program directories, especially those that require administrator permissions, can expose the data to security risks. Malicious software may take advantage of the elevated permissions and compromise the data.\n\nData integrity: Separating program files and data ensures that software updates or uninstallation processes do not accidentally delete or modify essential data. This separation helps maintain the integrity and safety of your data.\n\nBackup and migration: Keeping data separate from program files simplifies the backup process and makes it easier to transfer data between different computers or devices. This separation allows users to back up essential data without including unnecessary program files, making data management more efficient.\n\nUser management: In multi-user environments, different users might have different access levels and data requirements. Separating program files and data allows for more granular control over access permissions and ensures that user-specific data is kept separate and private.\n\n\nStoring data directly in the C:\\ root directory is particularly problematic because it makes the file system disorganized, difficult to manage, and potentially exposes your data to security risks. Moreover, it goes against best practices for organizing files and directories on a computer.\n\nwhy x86 is for 32-bit app\n\nThe term “x86” is used to refer to 32-bit applications because it originates from the Intel 8086 processor family. The 8086 was a 16-bit processor introduced by Intel in 1978. As new processors were developed in the same line, they maintained backward compatibility with the 8086 instruction set, which is why they were named with an “86” suffix, like the 80186, 80286, 80386, and 80486. \nWhen the 80386 was introduced, it brought support for 32-bit processing while still retaining compatibility with the older 16-bit x86 instruction set. This extended architecture was called IA-32 (Intel Architecture, 32-bit). As time went on and newer processors were released, the x86 nomenclature persisted and became synonymous with 32-bit architecture, even though it originated from a 16-bit processor family.\nIn contrast, the x64 architecture, also known as x86-64 or AMD64, was introduced by AMD to extend the x86 architecture to 64 bits, while maintaining backward compatibility with 32-bit applications. So, the “x86” term is used for 32-bit applications to distinguish them from the newer 64-bit (x64) applications.\n\nso amd invent 64-bit processer?\n\nAMD did not invent the 64-bit processor, but they were the first to extend the x86 architecture to 64 bits. The first 64-bit processor architecture was actually developed by MIPS Technologies, with the MIPS R4000, released in 1991.\nHowever, when it comes to the x86 architecture commonly used in personal computers, AMD played a significant role. They introduced the x86-64 (AMD64) architecture, an extension of the existing 32-bit x86 architecture that added 64-bit capabilities while maintaining backward compatibility with 32-bit applications.\nIntel, the original creator of the x86 architecture, later adopted a similar approach with their own 64-bit extension called Intel 64 (formerly known as EM64T). Intel 64 and AMD64 are largely compatible, and together they form the x86-64 architecture that is widely used in modern personal computers.\n\nintroduce amd and intel briefly\n\nAMD (Advanced Micro Devices):\nAMD is an American multinational semiconductor company founded in 1969 by Jerry Sanders and headquartered in Santa Clara, California. The company specializes in developing and manufacturing computer processors, graphics processing units (GPUs), and related technologies for both consumer and enterprise markets.\nAMD is best known for its line of x86-64 CPUs, such as the Athlon, Phenom, Ryzen, and EPYC processors. They have been a key competitor to Intel in the CPU market. AMD also acquired ATI Technologies in 2006, which enabled them to enter the GPU market and compete against NVIDIA with their Radeon graphics cards.\nIntel (Integrated Electronics Corporation):\nIntel is an American multinational technology company founded in 1968 by Robert Noyce and Gordon Moore, headquartered in Santa Clara, California. It is one of the world’s largest semiconductor chip manufacturers and is best known for its line of x86 microprocessors, which are found in a majority of personal computers.\nIntel’s product lineup includes a wide range of processors, such as the Core i3, i5, i7, and i9 series, as well as the Xeon processors used in servers and workstations. In addition to CPUs, Intel also manufactures chipsets, motherboards, solid-state drives (SSDs), network interface cards, and other computer components.\nBoth AMD and Intel are industry leaders in the development of computer processors and have played significant roles in shaping the technology landscape over the past few decades. While Intel has traditionally dominated the CPU market, AMD has made significant strides in recent years, offering competitive products in terms of performance and price.\n","dateCreated":"2023-05-02T00:00:00+08:00","dateModified":"2023-05-02T16:51:42+08:00","datePublished":"2023-05-02T00:00:00+08:00","description":"","headline":"Windows file system","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"},"publisher":{"@type":"Organization","name":"John Doe","sameAs":["https://github.com/","http://stackoverflow.com/users","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"url":"http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"}</script>
+    <meta name="description" content="Key points 32 and 64-bit processor architecture  folders in C disk in Windows  From ChatGPT 为什么有些软件的默认安装路径是C:\Users\用户名\AppData\Roaming? - root的回答 - 知乎 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;548340950&#x2F;answer&#x2F;">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Windows file system">
+<meta property="og:url" content="http://example.com/2023/05/02/CS/OS/Windows%20file%20system/index.html">
+<meta property="og:site_name" content="Leo&#39;s Blog！！！">
+<meta property="og:description" content="Key points 32 and 64-bit processor architecture  folders in C disk in Windows  From ChatGPT 为什么有些软件的默认安装路径是C:\Users\用户名\AppData\Roaming? - root的回答 - 知乎 https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;548340950&#x2F;answer&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-02T08:51:42.789Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
 
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
 
-block container
-    div#post-container
-        include mixins/post
-        +post(page)
-        include partial/comment
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
 
-    //- Comment
-    if theme.duoshuo
-        script.
-            var duoshuoQuery = {short_name:"#{theme.duoshuo}"};
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0] 
-                || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
 
 
-    if theme.disqus
-        script.
-            var disqus_shortname = '#{theme.disqus}';
-            var disqus_identifier = '#{page.path}';
-            var disqus_title = '#{page.title}';
-            var disqus_url = '#{config.url}/#{page.path}';
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
+    
 
-block pagination
-    include mixins/paginator
-    +post()
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Leo&#39;s Blog！！！
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
 
-block copyright
-    include partial/copyright
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="http://stackoverflow.com/users"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Stack Overflow"
+                        >
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://twitter.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Twitter"
+                        >
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://facebook.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Facebook"
+                        >
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://plus.google.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Google +"
+                        >
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://www.linkedin.com/profile/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="LinkedIn"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/mailto"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            Windows file system
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2023-05-02T00:00:00+08:00">
+	
+		    May 02, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/OS/">OS</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><ul>
+<li>32 and 64-bit processor architecture </li>
+<li>folders in C disk in Windows</li>
+</ul>
+<h2 id="From-ChatGPT"><a href="#From-ChatGPT" class="headerlink" title="From ChatGPT"></a>From ChatGPT</h2><hr>
+<p>为什么有些软件的默认安装路径是C:\Users\用户名\AppData\Roaming? - root的回答 - 知乎 <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/548340950/answer/2637630471">https://www.zhihu.com/question/548340950/answer/2637630471</a><br>summary the above, give me the key information in English</p>
+<hr>
+<p>The key differences between the directories mentioned are:</p>
+<ol>
+<li><strong>C:\Program Files</strong> - The installation directory for 64-bit software, accessible to all users. Admin permission is required to install software here. Storing program data in this directory poses a security risk.</li>
+<li><strong>C:\Program Files(x86)</strong> - Similar to the above, but for 32-bit applications.</li>
+<li><strong>C:\Users\Username\AppData\Roaming</strong> - Accessed through the %AppData% environment variable, stores user-specific data. This data is synced across computers in a domain network.</li>
+<li><strong>C:\Users\Username\AppData\Local</strong> - Accessed through the %LocalAppData% environment variable, stores local user data that is not synced across computers in a domain network.</li>
+<li><strong>C:\ProgramData</strong> - Contains data shared among all users. Use this directory for software data that should be consistent across users.</li>
+<li><strong>C:\Users\Username</strong> - The user’s home directory, where personal data should be stored. Cross-platform software often generates hidden files with a dot prefix in this directory.</li>
+<li><strong>C:\Users\Username\Documents</strong> - The “My Documents” folder, meant for user-generated data like documents, photos, music, videos, and archives. Some software may inappropriately store program data here.</li>
+</ol>
+<p>The proper separation of software installation and data storage depends on the software developer and the installation package tool. It’s important to follow guidelines and avoid storing data in incorrect locations to ensure easier data backups and software upgrades.</p>
+<hr>
+<p>“做到程序和数据分离，不要在程序安装目录下写数据，更不要把数据写到C:根目录Q下，简直是灾难。” why?</p>
+<hr>
+<p>Separating program files and data is crucial for various reasons:</p>
+<ol>
+<li><p><strong>Organization and clarity</strong>: Keeping program files and data separate makes it easier to manage and locate specific files when needed. Mixing data and program files can lead to <em><strong>confusion</strong></em> and difficulty in finding essential files.</p>
+</li>
+<li><p><strong>Security</strong>: Storing data in program directories, especially those that require administrator permissions, can expose the data to security risks. <em><strong>Malicious software may take advantage of the elevated permissions and compromise the data.</strong></em></p>
+</li>
+<li><p><strong>Data integrity</strong>: Separating program files and data ensures that software updates or uninstallation processes do not accidentally delete or modify essential data. This separation helps maintain the integrity and safety of your data.</p>
+</li>
+<li><p><strong>Backup and migration</strong>: Keeping data separate from program files simplifies the backup process and makes it easier to transfer data between different computers or devices. This separation allows users to back up essential data without including unnecessary program files, making data management more efficient.</p>
+</li>
+<li><p><strong>User management</strong>: In multi-user environments, different users might have different access levels and data requirements. Separating program files and data allows for more granular control over access permissions and ensures that user-specific data is kept separate and private.</p>
+</li>
+</ol>
+<p>Storing data directly in the C:\ root directory is particularly problematic because it makes the file system disorganized, difficult to manage, and potentially exposes your data to security risks. Moreover, it goes against best practices for organizing files and directories on a computer.</p>
+<hr>
+<p>why x86 is for 32-bit app</p>
+<hr>
+<p>The term “x86” is used to refer to 32-bit applications because it originates from the Intel 8086 processor family. <strong>The 8086 was a 16-bit processor introduced by Intel in 1978</strong>. As new processors were developed in the same line, they maintained backward compatibility with the 8086 instruction set, which is why they were named with an “86” suffix, like the 80186, 80286, 80386, and 80486. </p>
+<p>When the 80386 was introduced, it brought support for 32-bit processing while still retaining compatibility with the older 16-bit x86 instruction set. This extended architecture was called IA-32 (Intel Architecture, 32-bit). As time went on and newer processors were released, the x86 nomenclature persisted and became synonymous with 32-bit architecture, even though it originated from a 16-bit processor family.</p>
+<p>In contrast, the x64 architecture, also known as x86-64 or AMD64, was introduced by AMD to extend the x86 architecture to 64 bits, while maintaining backward compatibility with 32-bit applications. So, the “x86” term is used for 32-bit applications to distinguish them from the newer 64-bit (x64) applications.</p>
+<hr>
+<p>so amd invent 64-bit processer?</p>
+<hr>
+<p>AMD did not invent the 64-bit processor, but they were the first to extend the x86 architecture to 64 bits. The first 64-bit processor architecture was actually developed by MIPS Technologies, with the MIPS R4000, released in 1991.</p>
+<p>However, when it comes to the x86 architecture commonly used in personal computers, AMD played a significant role. They introduced the <em><strong>x86-64 (AMD64)</strong></em> architecture, an extension of the existing 32-bit x86 architecture that added 64-bit capabilities while maintaining backward compatibility with 32-bit applications.</p>
+<p>Intel, the original creator of the x86 architecture, later adopted a similar approach with their own 64-bit extension called Intel 64 (formerly known as EM64T). Intel 64 and AMD64 are largely compatible, and together they form the x86-64 architecture that is widely used in modern personal computers.</p>
+<hr>
+<p>introduce amd and intel briefly</p>
+<hr>
+<p><strong>AMD (Advanced Micro Devices)</strong>:</p>
+<p>AMD is an American multinational semiconductor company founded in 1969 by Jerry Sanders and headquartered in Santa Clara, California. The company specializes in developing and manufacturing computer processors, graphics processing units (GPUs), and related technologies for both consumer and enterprise markets.</p>
+<p>AMD is best known for its line of <em><strong>x86-64 CPUs</strong></em>, such as the Athlon, Phenom, Ryzen, and EPYC processors. They have been a key competitor to Intel in the CPU market. AMD also acquired ATI Technologies in 2006, which enabled them to enter the GPU market and compete against NVIDIA with their Radeon graphics cards.</p>
+<p><strong>Intel (Integrated Electronics Corporation)</strong>:</p>
+<p>Intel is an American multinational technology company founded in 1968 by Robert Noyce and Gordon Moore, headquartered in Santa Clara, California. It is one of the world’s largest semiconductor chip manufacturers and is best known for its line of <em><strong>x86</strong></em> microprocessors, which are found in a majority of personal computers.</p>
+<p>Intel’s product lineup includes a wide range of processors, such as the Core i3, i5, i7, and i9 series, as well as the Xeon processors used in servers and workstations. In addition to CPUs, Intel also manufactures chipsets, motherboards, solid-state drives (SSDs), network interface cards, and other computer components.</p>
+<p>Both AMD and Intel are industry leaders in the development of computer processors and have played significant roles in shaping the technology landscape over the past few decades. While Intel has traditionally dominated the CPU market, AMD has made significant strides in recent years, offering competitive products in terms of performance and price.</p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/05/02/General/linux/"
+                    data-tooltip="linux"
+                    aria-label="PREVIOUS: linux"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/05/02/CS/WEB/change%20hexo%20theme/"
+                    data-tooltip="change hexo theme"
+                    aria-label="NEXT: change hexo theme"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2023 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/05/02/General/linux/"
+                    data-tooltip="linux"
+                    aria-label="PREVIOUS: linux"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2023/05/02/CS/WEB/change%20hexo%20theme/"
+                    data-tooltip="change hexo theme"
+                    aria-label="NEXT: change hexo theme"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=http://example.com/2023/05/02/CS/OS/Windows%20file%20system/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+    
+
+
+
+
+    </body>
+</html>

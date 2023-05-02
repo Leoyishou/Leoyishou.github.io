@@ -1,12 +1,989 @@
-extends partial/layout
 
-block container
-    include mixins/post
-    +postList()
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Leo&#39;s Blog！！！">
+    <title>Archives: 2023/4 - Leo&#39;s Blog！！！</title>
+    <meta name="author" content="John Doe">
+    
+    
+    
+    <script type="application/ld+json">{}</script>
+    <meta name="description" content="writing something about programming, English learning and some free experience">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="Leo&#39;s Blog！！！">
+<meta property="og:url" content="http://example.com/archives/2023/04/index.html">
+<meta property="og:site_name" content="Leo&#39;s Blog！！！">
+<meta property="og:description" content="writing something about programming, English learning and some free experience">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    
+<link rel="stylesheet" href="/assets/css/all.css">
 
-block pagination
-    include mixins/paginator
-    +home()
+    
+<link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
 
-block copyright
-    include partial/copyright
+    
+<link rel="stylesheet" href="/assets/css/thumbs.css">
+
+    
+<link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+
+    <!--STYLES END-->
+    
+
+    
+
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="1">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/"
+            aria-label=""
+        >
+            Leo&#39;s Blog！！！
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="1">
+    <div class="sidebar-container">
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
+                            
+                            rel="noopener"
+                            title="Home"
+                        >
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-categories"
+                            
+                            rel="noopener"
+                            title="Categories"
+                        >
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-tags"
+                            
+                            rel="noopener"
+                            title="Tags"
+                        >
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Tags</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/all-archives"
+                            
+                            rel="noopener"
+                            title="Archives"
+                        >
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Archives</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
+                            
+                            rel="noopener"
+                            title="Search"
+                        >
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Search</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="#about"
+                            
+                            rel="noopener"
+                            title="About"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="http://stackoverflow.com/users"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Stack Overflow"
+                        >
+                        <i class="sidebar-button-icon fab fa-stack-overflow" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Stack Overflow</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://twitter.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Twitter"
+                        >
+                        <i class="sidebar-button-icon fab fa-twitter" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://facebook.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Facebook"
+                        >
+                        <i class="sidebar-button-icon fab fa-facebook" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Facebook</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://plus.google.com/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="Google +"
+                        >
+                        <i class="sidebar-button-icon fab fa-google-plus" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Google +</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="https://www.linkedin.com/profile/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="LinkedIn"
+                        >
+                        <i class="sidebar-button-icon fab fa-linkedin" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">LinkedIn</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/mailto"
+                            
+                            rel="noopener"
+                            title="Mail"
+                        >
+                        <i class="sidebar-button-icon fa fa-envelope" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Mail</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
+                            
+                            rel="noopener"
+                            title="RSS"
+                        >
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">RSS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="1"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    <section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/28/Tools/obsidian_to_anki/obsidian_to_anki%20regex%20config/"
+                            aria-label=": obsidian_to_anki regex config"
+                        >
+                            obsidian_to_anki regex config
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-28T00:00:00+08:00">
+	
+		    Apr 28, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/tools/">tools</a>, <a class="category-link" href="/categories/tools/anki/">anki</a>, <a class="category-link" href="/categories/tools/anki/obsidian-to-anki/">obsidian_to_anki</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <hr>
+<p><img src="/images/Pasted%20image%2020230501222122.png"></p>
+<hr>
+<p>To create a regex pattern that matches the text structure you provided, where the front of the flashcard is on one line and the back of the flashcard is on the next line, you can use the following regex pattern:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">^(.+)\n\n(.+)</span><br></pre></td></tr></table></figure>
+
+<p>Here’s a breakdown of the regex pattern:</p>
+<ul>
+<li><code>^</code>: matches the beginning of a line.</li>
+<li><code>(.+)</code>: captures one or more characters (the <code>+</code> quantifier). The first group represents the front of the flashcard.</li>
+<li><code>\n\n</code>: matches two newline characters, representing the blank line between the front and back of the flashcard.</li>
+<li><code>(.+)</code>: captures one or more characters (the <code>+</code> quantifier). The second group represents the back of the flashcard.</li>
+</ul>
+<p>Please note that this regex pattern assumes that there is always a blank line between the front and back of the flashcards. If the structure of your text changes, you may need to adjust the pattern accordingly.</p>
+<hr>
+<p><strong>I test the regex</strong></p>
+<p><strong>I build my obsidian to anki work stream sucessfully!</strong><br><img src="/images/Pasted%20image%2020230501222905.png"></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/28/Tools/obsidian_to_anki/obsidian_to_anki%20regex%20config/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/26/CS/network/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/"
+                            aria-label=": Connect to the Docker container using SSH from the host machine"
+                        >
+                            Connect to the Docker container using SSH from the host machine
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-26T00:00:00+08:00">
+	
+		    Apr 26, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/network/">network</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><p>在容器中下载好ssh</p>
+<ul>
+<li><p>I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑，</p>
+<p>而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑</p>
+<p>本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开</p>
+</li>
+<li><p>dockerfile？ </p>
+</li>
+<li><p>docker build？</p>
+</li>
+</ul>
+<h2 id="From-ChatGPT"><a href="#From-ChatGPT" class="headerlink" title="From ChatGPT"></a>From ChatGPT</h2><ol>
+<li>Create a Dockerfile:</li>
+</ol>
+<p>Create a new file called <code>Dockerfile</code> in a directory. This file will contain instructions to build a Docker image with SSH enabled.</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use an existing image as the base</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install OpenSSH server</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y openssh-server</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the /var/run/sshd directory (for privilege separation)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /var/run/sshd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the root password for SSH access</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;root:YOUR_PASSWORD&#x27;</span> | chpasswd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose the SSH port</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">22</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the SSH server</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/usr/sbin/sshd&quot;</span>, <span class="string">&quot;-D&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>YOUR_PASSWORD</code> with a secure password of your choice.</p>
+<ol start="2">
+<li>Build the Docker image:</li>
+</ol>
+<p>Navigate to the directory containing the <code>Dockerfile</code> and run the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my_ssh_container .</span><br></pre></td></tr></table></figure>
+
+<p>This will create a new Docker image named <code>my_ssh_container</code> with SSH enabled.</p>
+<ol start="3">
+<li>Run the Docker container:</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 2222:22 --name my_ssh_container_instance my_ssh_container</span><br></pre></td></tr></table></figure>
+
+<p>This command will start a new container named <code>my_ssh_container_instance</code> based on the <code>my_ssh_container</code> image. It maps the container’s port 22 (SSH) to the host’s port 2222.</p>
+<ol start="4">
+<li>Connect to the Docker container via SSH:</li>
+</ol>
+<p>From the host machine or another computer, you can now connect to the Docker container using SSH:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost -p 2222</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>localhost</code> with the IP address of the host machine if you’re connecting from another computer. Enter the password you set in the Dockerfile when prompted.</p>
+<p>You should now have SSH access to your Docker container. Note that this method is not recommended for production environments, as it has security implications. For production, consider using <code>docker exec</code> to access the container or setting up proper user authentication and key-based authentication for SSH.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/26/CS/network/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/23/Tools/markdown/Markdown%20Syntax/"
+                            aria-label=": Markdown Syntax"
+                        >
+                            Markdown Syntax
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-23T00:00:00+08:00">
+	
+		    Apr 23, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/tools/">tools</a>, <a class="category-link" href="/categories/tools/markdown/">markdown</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>Here’s a list of common Markdown syntax elements:</p>
+<ol>
+<li>Headers:</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Heading level 1</span><br><span class="line">## Heading level 2</span><br><span class="line">### Heading level 3</span><br><span class="line">#### Heading level 4</span><br><span class="line">##### Heading level 5</span><br><span class="line">###### Heading level 6</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>Emphasis:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*Italic text*</span><br><span class="line">_Italic text_</span><br><span class="line"></span><br><span class="line">**Bold text**</span><br><span class="line">__Bold text__</span><br><span class="line"></span><br><span class="line">***Bold and italic text***</span><br><span class="line">___Bold and italic text___</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Lists:</p>
+</li>
+</ol>
+<p>Unordered list:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- Item 1</span><br><span class="line">- Item 2</span><br><span class="line">  - Sub-item 1</span><br><span class="line">  - Sub-item 2</span><br><span class="line">- Item 3</span><br></pre></td></tr></table></figure>
+
+<p>Ordered list:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. Item 1</span><br><span class="line">2. Item 2</span><br><span class="line">   1. Sub-item 1</span><br><span class="line">   2. Sub-item 2</span><br><span class="line">3. Item 3</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>Links:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Link text](https://www.example.com)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Images:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![Alt text](https://www.example.com/image.jpg)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Blockquotes:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; This is a blockquote.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Inline code:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is `inline code`.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Code blocks:</p>
+<pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is a code block.</span><br></pre></td></tr></table></figure>
+</pre></li>
+</ol>
+<p>or</p>
+<!--ID: 1682402866497-->
+
+
+<pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello, World!&quot;</span>)</span><br></pre></td></tr></table></figure>
+</pre>
+
+<ol start="9">
+<li><p>Horizontal rule:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">or</span><br><span class="line">***</span><br><span class="line">or</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Tables:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| Column 1 | Column 2 | Column 3 |</span><br><span class="line">|----------|----------|----------|</span><br><span class="line">| Row 1    | Data     | Data     |</span><br><span class="line">| Row 2    | Data     | Data     |</span><br><span class="line">| Row 3    | Data     | Data     |</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>Please note that some Markdown editors or platforms might support additional syntax or slight variations of the basic Markdown syntax. It’s always a good idea to consult the documentation for the specific editor or platform you’re using to ensure compatibility.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/23/Tools/markdown/Markdown%20Syntax/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/22/CS/network/knowledge%20of%20ifconfig/"
+                            aria-label=": knowledge of ifconfig"
+                        >
+                            knowledge of ifconfig
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-22T00:00:00+08:00">
+	
+		    Apr 22, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/network/">network</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <hr>
+<p><strong>i’m a linux learner, i want you teach me something about internet . could you explain me the following content in easy to understand way?</strong>    </p>
+<hr>
+<p>Sure! What you’re looking at is the output of a command that displays information about the network interfaces on a Linux system. This output shows details for four network interfaces: <code>docker0</code>, <code>ens33</code>, <code>lo</code>, and <code>veth557dd78</code>.</p>
+<p>Let’s break down each section in simpler terms:</p>
+<ol>
+<li><p><code>docker0</code>: This is a virtual network interface created by Docker, a container platform. The information provided includes:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</span><br><span class="line">        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255</span><br><span class="line">        inet6 fe80::42:46ff:fe73:fc6c  prefixlen 64  scopeid 0x20&lt;<span class="built_in">link</span>&gt;</span><br><span class="line">        ether 02:42:46:73:<span class="built_in">fc</span>:6c  txqueuelen 0  (以太网)</span><br><span class="line">        RX packets 0  bytes 0 (0.0 B)</span><br><span class="line">        RX errors 0  dropped 0  overruns 0  frame 0</span><br><span class="line">        TX packets 36  bytes 4946 (4.9 KB)</span><br><span class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ens33</code>: This is a physical Ethernet interface connected to the system. The information provided includes:</p>
+</li>
+<li><p><code>lo</code>: This is the loopback interface, which is a virtual network interface that allows the system to communicate with itself. </p>
+</li>
+<li><p><code>veth557dd78</code>: This is another virtual Ethernet interface, likely associated with a Docker container.</p>
+</li>
+</ol>
+<p>In summary, this output provides information about the network interfaces on your system, including IP addresses, subnet masks, broadcast addresses, and details about received and transmitted packets.</p>
+<hr>
+<p><strong>physical Ethernet interface    loopback interface,  virtual Ethernet interface, MAC address  i don’t know these terms</strong></p>
+<hr>
+<p>I understand. Let me explain these terms in a simpler way:</p>
+<ol>
+<li><p><strong>Physical Ethernet interface</strong>: This is a hardware component that connects your computer to a wired network, usually using an Ethernet cable. The Ethernet interface handles sending and receiving data between your computer and the network. An example of a physical Ethernet interface is the <code>ens33</code> interface from the output you provided.</p>
+</li>
+<li><p><strong>Loopback interface</strong>: This is a special virtual network interface that allows your computer to communicate with itself. It is mainly used for testing and troubleshooting purposes. The IP address assigned to the loopback interface is usually <code>127.0.0.1</code> for IPv4 and <code>::1</code> for IPv6. The <code>lo</code> interface from the output you provided is a loopback interface.</p>
+</li>
+<li><p><strong>Virtual Ethernet interface</strong>: This is a software-created network interface that emulates the behavior of a physical Ethernet interface. Virtual Ethernet interfaces are often used in virtualization and containerization technologies, like Docker, to provide network connectivity for virtual machines or containers. An example of a virtual Ethernet interface is the <code>docker0</code> interface from the output you provided.</p>
+</li>
+<li><p><strong>MAC address</strong>: A Media Access Control (MAC) address is a unique identifier assigned to a network interface. It is used to identify devices on a network at the data link layer (Layer 2) of the OSI model. MAC addresses are 48 bits in length and are usually represented as six groups of two hexadecimal digits, separated by colons or hyphens (e.g., <code>02:42:46:73:fc:6c</code>). Every network interface, whether physical or virtual, has a MAC address.</p>
+</li>
+</ol>
+<hr>
+<p><strong>above is my virtual machine’s information, following is my real pc’s information, tell me their relationship and other details what are helpful to my learning :Windows IP Configuration</strong></p>
+<hr>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">Windows IP Configuration</span><br><span class="line"></span><br><span class="line">Ethernet adapter Ethernet:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 1:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Local Area Connection* 2:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::9a10:ed69:ef20:bf29%5</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.141.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Ethernet adapter VMware Network Adapter VMnet8: </span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::b288:751e:149a:1576%7</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.255.1</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . :</span><br><span class="line"></span><br><span class="line">Wireless LAN adapter Wi-Fi:</span><br><span class="line"></span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br><span class="line">   Link-local IPv6 Address . . . . . : fe80::d68c:caed:21ae:5496%11</span><br><span class="line">   IPv4 Address. . . . . . . . . . . : 192.168.31.56</span><br><span class="line">   Subnet Mask . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   Default Gateway . . . . . . . . . : 192.168.31.1</span><br><span class="line"></span><br><span class="line">Ethernet adapter Bluetooth Network Connection:</span><br><span class="line"></span><br><span class="line">   Media State . . . . . . . . . . . : Media disconnected</span><br><span class="line">   Connection-specific DNS Suffix  . :</span><br></pre></td></tr></table></figure>
+<hr>
+<p>The information you provided shows the network interfaces on your real PC, which is running Windows. There are several network interfaces listed, including Ethernet, Wireless LAN (Wi-Fi), and virtual network interfaces created by VMware. Let’s look at the relationship between your real PC and the virtual machine (VM) you mentioned earlier, as well as other useful details for your learning.</p>
+<ol>
+<li><p><strong>Ethernet adapter Ethernet</strong>: This is the physical Ethernet interface on your real PC. It is currently disconnected (Media State: Media disconnected).</p>
+</li>
+<li><p><em><em>Wireless LAN adapters (Local Area Connection</em> 1, Local Area Connection</em> 2, Wi-Fi)**: These are the Wi-Fi interfaces on your real PC. Only the Wi-Fi adapter is connected and has an IP address (IPv4 Address: 192.168.31.56) and a default gateway (192.168.31.1).</p>
+</li>
+<li><p><strong>Ethernet adapter VMware Network Adapter VMnet1 &amp; VMnet8</strong>: These are virtual network interfaces created by VMware, a virtualization software. They provide network connectivity between your real PC and the virtual machines running on VMware. The IP addresses assigned to these interfaces are 192.168.141.1 and 192.168.255.1, respectively.</p>
+</li>
+<li><p><strong>Ethernet adapter Bluetooth Network Connection</strong>: This is a network interface related to Bluetooth connectivity. It is currently disconnected (Media State: Media disconnected).</p>
+</li>
+</ol>
+<p>Now let’s discuss the relationship between your real PC and the virtual machine:</p>
+<ul>
+<li>Your real PC is running VMware, which hosts your Linux virtual machine. </li>
+<li>The virtual machine is connected to your real PC through virtual network interfaces (VMware Network Adapter VMnet1 and VMnet8).</li>
+<li>The <code>ens33</code> interface on your virtual machine is connected to the VMware Network Adapter VMnet8 on your real PC. We can tell this by the matching IP address subnet (192.168.255.x).</li>
+</ul>
+<p>In summary, your real PC has several network interfaces, including physical Ethernet, Wi-Fi, and virtual network interfaces created by VMware. The virtual machine hosted on VMware is connected to your real PC through one of these virtual network interfaces. By understanding the relationship between the network interfaces on your real PC and the virtual machine, you can gain a better understanding of how network connectivity is established between them.</p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/22/CS/network/knowledge%20of%20ifconfig/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/21/CS/WEB/build%20a%20blog%20using%20GitHub%20and%20Hexo/"
+                            aria-label=": build a blog using GitHub and Hexo"
+                        >
+                            build a blog using GitHub and Hexo
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-21T00:00:00+08:00">
+	
+		    Apr 21, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/CS/">CS</a>, <a class="category-link" href="/categories/CS/web/">web</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <h2 id="Key-Points"><a href="#Key-Points" class="headerlink" title="Key Points"></a>Key Points</h2><ul>
+<li>what is node.js</li>
+<li>what is hexo           <em><strong>Hexo is a static site generator built on Node.js</strong></em></li>
+<li>in the blog, what roles do different tools play?</li>
+<li>where can i change the content of my blog?</li>
+<li>how can i make it more fancy?</li>
+</ul>
+<p>note: there are two repos in the building of project. one(name.github.io) is for the deployment, the other is for the storeration of code.</p>
+<h2 id="From-ChatGPT"><a href="#From-ChatGPT" class="headerlink" title="From ChatGPT"></a>From ChatGPT</h2><p>To build a blog using GitHub and Hexo, follow these steps:</p>
+<ol>
+<li><strong>Install Node.js and Git:</strong></li>
+</ol>
+<p>Hexo is built on Node.js, so you will need to install it on your local machine. Visit the Node.js website (<a target="_blank" rel="noopener" href="https://nodejs.org/">https://nodejs.org/</a>) to download and install the latest version of Node.js. Also, ensure you have Git installed on your machine (<a target="_blank" rel="noopener" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>).</p>
+<ol start="2">
+<li><strong>Install Hexo:</strong></li>
+</ol>
+<p>Open a terminal (or command prompt) and install Hexo using the following command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>Create a new Hexo project:</strong></li>
+</ol>
+<p>In the terminal, navigate to the directory where you want to create your blog and run the following command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init my-blog</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>my-blog</code> with the desired name for your blog directory. This command will create a new Hexo project in the specified directory.</p>
+<ol start="4">
+<li><strong>Install dependencies:</strong></li>
+</ol>
+<p>Navigate to the new project directory and install the necessary dependencies:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>Run the Hexo server:</strong></li>
+</ol>
+<p>Start the Hexo server to preview your blog:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>By default, your blog will be accessible at <code>http://localhost:4000</code>.</p>
+<ol start="6">
+<li><strong>Customize your blog:</strong></li>
+</ol>
+<p>Edit the <code>_config.yml</code> file in the project directory to customize your blog’s settings, such as title, description, and theme. You can also create new posts and pages using the following commands:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;Your Post Title&quot;</span><br><span class="line">hexo new page &quot;Your Page Title&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>Deploy your blog to GitHub Pages:</strong></li>
+</ol>
+<p>First, install the Hexo GitHub Pages deployment plugin:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>Next, configure the deployment settings in the <code>_config.yml</code> file by adding the following lines:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/yourusername/yourusername.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>yourusername</code> with your GitHub username.</p>
+<p>Commit your changes and push your project to a new repository on GitHub:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git branch -M main</span><br><span class="line">git remote add origin https://github.com/yourusername/my-blog.git</span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<p>Replace <code>yourusername</code> with your GitHub username and <code>my-blog</code> with the desired repository name.</p>
+<p>Finally, deploy your blog to GitHub Pages:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>Your blog should now be available at <code>https://yourusername.github.io</code>.</p>
+<p>For more information on Hexo and its features, visit the official Hexo documentation: <a target="_blank" rel="noopener" href="https://hexo.io/docs/">https://hexo.io/docs/</a></p>
+<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/21/CS/WEB/build%20a%20blog%20using%20GitHub%20and%20Hexo/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title">
+                    
+                        <a
+                            class="link-unstyled"
+                            href="/2023/04/20/English/review/April%2020,%202023/"
+                            aria-label=": review: April 20, 2023"
+                        >
+                            review: April 20, 2023
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time datetime="2023-04-20T00:00:00+08:00">
+	
+		    Apr 20, 2023
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/English/">English</a>, <a class="category-link" href="/categories/English/review/">review</a>
+
+
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content">
+                    <p>I’m afraid of I do not have no hair in the future<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>I’m afraid that I will have no hair in the future</p>
+<!--ID: 1682957470871-->
+<p>In the part of paying, there would four or five people to pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>When it came time to pay the bill, four or five people would fight over the bill.</p>
+<!--ID: 1682957470878-->
+<p>Eventually, it is that guy pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Eventually, it is still that person who pay.</p>
+<!--ID: 1682957470882-->
+<p>You would share the money, or someone would pay<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Will you split the bill or will one person treat everyone?</p>
+<!--ID: 1682957470886-->
+<p>We don’t care it<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>We don’t care much about it</p>
+<!--ID: 1682957470890-->
+<p>or i spent all and afterwards he send his money<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Or I can pay the entire bill, and then he can transfer the money to me later.</p>
+<!--ID: 1682957470894-->
+<p>我们没时间了<br>&#x3D;&#x3D;&#x3D; ANKI &#x3D;&#x3D;&#x3D;<br>Our time is up</p>
+<!--ID: 1682957470898-->
+
+
+                    
+                        
+
+
+                    
+                    
+                        <p>
+                            <a
+                                href="/2023/04/20/English/review/April%2020,%202023/#post-footer"
+                                class="postShorten-excerpt_link link"
+                                aria-label=""
+                            >
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2023 John Doe. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <h4 id="about-card-name">John Doe</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+
+<script src="/assets/js/jquery.js"></script>
+
+
+<script src="/assets/js/jquery.fancybox.js"></script>
+
+
+<script src="/assets/js/thumbs.js"></script>
+
+
+<script src="/assets/js/tranquilpeak.js"></script>
+
+<!--SCRIPTS END-->
+
+
+
+
+
+    </body>
+</html>
