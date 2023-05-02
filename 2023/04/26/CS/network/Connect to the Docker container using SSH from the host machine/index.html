@@ -1,283 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Connect to the Docker container using SSH from the host machine | Leo&#39;s Blog！！！</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Key points在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开  dockerfile？   docker build？   From">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Connect to the Docker container using SSH from the host machine">
-<meta property="og:url" content="http://example.com/2023/04/26/CS/network/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/index.html">
-<meta property="og:site_name" content="Leo&#39;s Blog！！！">
-<meta property="og:description" content="Key points在容器中下载好ssh  I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑， 而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑 本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开  dockerfile？   docker build？   From">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-01T16:19:45.276Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Leo's Blog！！！" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+extends partial/layout
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block site_title
+    != page.title + " · " + config.title
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+block description
+    - var desc = page.desc || page.title + ' - ' + config.author;
+    meta(name="description", content=desc)
 
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
+block container
+    div#post-container
+        include mixins/post
+        +post(page)
+        include partial/comment
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Leo&#39;s Blog！！！</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Programming &amp; English learning</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-CS/network/Connect to the Docker container using SSH from the host machine" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/04/26/CS/network/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" class="article-date">
-  <time class="dt-published" datetime="2023-04-25T16:00:00.000Z" itemprop="datePublished">2023-04-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CS/">CS</a>►<a class="article-category-link" href="/categories/CS/network/">network</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      Connect to the Docker container using SSH from the host machine
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="Key-points"><a href="#Key-points" class="headerlink" title="Key points"></a>Key points</h2><p>在容器中下载好ssh</p>
-<ul>
-<li><p>I dont’t used to write locally  我过去并不是本地写，用虚拟机的sdk跑，</p>
-<p>而是本地写，本地sdk检查，然后把检查后的代码传到虚拟机文件夹里，用虚拟机的sdk跑</p>
-<p>本质上来说不是sdk的远距离起作用，只是利用了一个文件同步功能，然后本地检查和远地运行分开</p>
-</li>
-<li><p>dockerfile？ </p>
-</li>
-<li><p>docker build？</p>
-</li>
-</ul>
-<h2 id="From-ChatGPT"><a href="#From-ChatGPT" class="headerlink" title="From ChatGPT"></a>From ChatGPT</h2><ol>
-<li>Create a Dockerfile:</li>
-</ol>
-<p>Create a new file called <code>Dockerfile</code> in a directory. This file will contain instructions to build a Docker image with SSH enabled.</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Use an existing image as the base</span></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install OpenSSH server</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; apt-get install -y openssh-server</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the /var/run/sshd directory (for privilege separation)</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /var/run/sshd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the root password for SSH access</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&#x27;root:YOUR_PASSWORD&#x27;</span> | chpasswd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Expose the SSH port</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">22</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Start the SSH server</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;/usr/sbin/sshd&quot;</span>, <span class="string">&quot;-D&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>Replace <code>YOUR_PASSWORD</code> with a secure password of your choice.</p>
-<ol start="2">
-<li>Build the Docker image:</li>
-</ol>
-<p>Navigate to the directory containing the <code>Dockerfile</code> and run the following command:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my_ssh_container .</span><br></pre></td></tr></table></figure>
-
-<p>This will create a new Docker image named <code>my_ssh_container</code> with SSH enabled.</p>
-<ol start="3">
-<li>Run the Docker container:</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 2222:22 --name my_ssh_container_instance my_ssh_container</span><br></pre></td></tr></table></figure>
-
-<p>This command will start a new container named <code>my_ssh_container_instance</code> based on the <code>my_ssh_container</code> image. It maps the container’s port 22 (SSH) to the host’s port 2222.</p>
-<ol start="4">
-<li>Connect to the Docker container via SSH:</li>
-</ol>
-<p>From the host machine or another computer, you can now connect to the Docker container using SSH:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@localhost -p 2222</span><br></pre></td></tr></table></figure>
-
-<p>Replace <code>localhost</code> with the IP address of the host machine if you’re connecting from another computer. Enter the password you set in the Dockerfile when prompted.</p>
-<p>You should now have SSH access to your Docker container. Note that this method is not recommended for production environments, as it has security implications. For production, consider using <code>docker exec</code> to access the container or setting up proper user authentication and key-based authentication for SSH.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/04/26/CS/network/Connect%20to%20the%20Docker%20container%20using%20SSH%20from%20the%20host%20machine/" data-id="clh4v8oq90005i8tug4hg1jp8" data-title="Connect to the Docker container using SSH from the host machine" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/04/28/Tools/obsidian_to_anki/obsidian_to_anki%20regex%20config/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          obsidian_to_anki regex config
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/04/23/Tools/markdown/Markdown%20Syntax/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Markdown Syntax</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+    //- Comment
+    if theme.duoshuo
+        script.
+            var duoshuoQuery = {short_name:"#{theme.duoshuo}"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/network/">network</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/Git/">Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/markdown/">markdown</a></li></ul></li></ul>
-    </div>
-  </div>
+    if theme.disqus
+        script.
+            var disqus_shortname = '#{theme.disqus}';
+            var disqus_identifier = '#{page.path}';
+            var disqus_title = '#{page.title}';
+            var disqus_url = '#{config.url}/#{page.path}';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
 
+block pagination
+    include mixins/paginator
+    +post()
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/05/02/General/linux/">linux</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/02/CS/OS/Windows%20file%20system/">Windows file system</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/ChatGPT/Senario%20to%20use%20ChatGpt/">summary of senarios of using ChatGPT</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/General/Wiki/">what is wiki</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/English/review/May%201,%202023/">May 1, 2023</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+block copyright
+    include partial/copyright

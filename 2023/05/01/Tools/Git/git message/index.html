@@ -1,282 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>git message | Leo&#39;s Blog！！！</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="how can i write effective git message  Writing effective Git commit messages is crucial for maintaining a clean and understandable project history. Good commit messages help you and your collaborator">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git message">
-<meta property="og:url" content="http://example.com/2023/05/01/Tools/Git/git%20message/index.html">
-<meta property="og:site_name" content="Leo&#39;s Blog！！！">
-<meta property="og:description" content="how can i write effective git message  Writing effective Git commit messages is crucial for maintaining a clean and understandable project history. Good commit messages help you and your collaborator">
-<meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-01T15:35:07.131Z">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Leo's Blog！！！" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+extends partial/layout
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+block site_title
+    != page.title + " · " + config.title
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+block description
+    - var desc = page.desc || page.title + ' - ' + config.author;
+    meta(name="description", content=desc)
 
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
+block container
+    div#post-container
+        include mixins/post
+        +post(page)
+        include partial/comment
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Leo&#39;s Blog！！！</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Programming &amp; English learning</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-Tools/Git/git message" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/05/01/Tools/Git/git%20message/" class="article-date">
-  <time class="dt-published" datetime="2023-04-30T16:00:00.000Z" itemprop="datePublished">2023-05-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>►<a class="article-category-link" href="/categories/Tools/Git/">Git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      git message
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>how can i write effective git message</p>
-<hr>
-<p>Writing effective Git commit messages is crucial for maintaining a clean and understandable project history. Good commit messages help you and your collaborators quickly understand the changes made in each commit. Here are some guidelines to write effective Git commit messages:</p>
-<ol>
-<li><p>Write a <strong>concise and descriptive subject line</strong>: The first line of the commit message should be a short summary (up to 50 characters) of the changes made. Begin with a capital letter and use imperative mood (e.g., “Add”, “Fix”, “Update”).</p>
-</li>
-<li><p>Separate the subject from the body with a blank line: If you need to provide more details about the commit, leave a blank line after the subject line and then write the body. This separation makes the message easier to read.</p>
-</li>
-<li><p>Wrap the body at 72 characters: When writing a longer commit message with a body, limit each line to 72 characters. This ensures that the message is properly formatted and easy to read in various Git tools.</p>
-</li>
-<li><p>Use the body to <strong>explain what and why</strong>: The body should explain what changes were made and the reasons for those changes. Focus on the context and the motivation behind the changes, rather than describing the exact lines of code that were altered.</p>
-</li>
-<li><p>Use bullet points or lists: If you need to describe multiple changes, use bullet points or lists to make the commit message more readable.</p>
-</li>
-<li><p>Use proper grammar and punctuation: Ensure your commit messages are well-written, with proper grammar, punctuation, and spelling. This makes the messages easier to understand and looks more professional.</p>
-</li>
-</ol>
-<p>Here’s an example of an effective Git commit message:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Add validation for user registration form</span><br><span class="line"></span><br><span class="line">- Check if email is unique</span><br><span class="line">- Ensure password meets complexity requirements</span><br><span class="line">- Validate input length for all fields</span><br></pre></td></tr></table></figure>
-
-<p>This example has a clear and descriptive subject line, a blank line separating the subject from the body, a concise explanation of the changes made, and proper formatting.</p>
-<hr>
-<p>must it start with fix&#x2F;update&#x2F;add?</p>
-<hr>
-<p>No, your Git commit message doesn’t have to start with “fix”, “update”, or “add”. These words are just common examples that follow the convention of using the imperative mood in commit messages. The main idea is to use a verb in the imperative form that briefly and clearly describes the action taken in the commit.</p>
-<p>Some other examples of verbs you can use are:</p>
-<ul>
-<li>Remove</li>
-<li>Change</li>
-<li>Implement</li>
-<li>Refactor</li>
-<li>Merge</li>
-<li>Create</li>
-<li>Optimize</li>
-<li>Reformat</li>
-</ul>
-<p>Choose the verb that best represents the change made in the commit. The most important aspect is to make the commit message concise, informative, and easy to understand.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/05/01/Tools/Git/git%20message/" data-id="clh51gmgw00015gtudg2icslf" data-title="git message" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/05/01/English/review/May%201,%202023/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          May 1, 2023
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/04/28/Tools/obsidian_to_anki/obsidian_to_anki%20regex%20config/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">obsidian_to_anki regex config</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+    //- Comment
+    if theme.duoshuo
+        script.
+            var duoshuoQuery = {short_name:"#{theme.duoshuo}"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/">CS</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/CS/OS/">OS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/build/">build</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/CS/network/">network</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/ChatGPT/">ChatGPT</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/English/">English</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/English/review/">review</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/Git/">Git</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/general/">general</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/anki/">anki</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/anki/obsidian-to-anki/">obsidian_to_anki</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/markdown/">markdown</a></li></ul></li></ul>
-    </div>
-  </div>
+    if theme.disqus
+        script.
+            var disqus_shortname = '#{theme.disqus}';
+            var disqus_identifier = '#{page.path}';
+            var disqus_title = '#{page.title}';
+            var disqus_url = '#{config.url}/#{page.path}';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        script(id='dsq-count-scr' src='//#{theme.disqus}.disqus.com/count.js' async)
 
+block pagination
+    include mixins/paginator
+    +post()
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/05/02/General/linux/">linux</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/02/CS/OS/Windows%20file%20system/">Windows file system</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/ChatGPT/Senario%20to%20use%20ChatGpt/">summary of senarios of using ChatGPT</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/General/Wiki/">what is wiki</a>
-          </li>
-        
-          <li>
-            <a href="/2023/05/01/English/review/May%201,%202023/">May 1, 2023</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+block copyright
+    include partial/copyright
