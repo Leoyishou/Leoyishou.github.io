@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Leo's Blog！！！ | Leo's Blog！！！</title><meta name="author" content="Leo"><meta name="copyright" content="Leo"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1.3科学问题与选题部分：介绍论文选题背景的内容是否可整合到1.1部分，    小结现存问题；后在介绍1.2研究进展时总结当前国内外在进行文化交流线路模拟时的进展，可突出论文要采用怎么样的国际前沿方法手段去模拟研究区的交流线路。    1.3部分可阐释研究内容及技术路线。    不足之处：1、论文正文整体表述的逻辑框架和思路均较为清晰、完整。但是目前的技术路线过于简略和粗糙，未能充分地完整展">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leo&#39;s Blog！！！">
+<meta property="og:url" content="http://example.com/2023/05/22/CS/OOP-Design%20Patterns/Actions_%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6_Leo_20230522120400/index.html">
+<meta property="og:site_name" content="Leo&#39;s Blog！！！">
+<meta property="og:description" content="1.3科学问题与选题部分：介绍论文选题背景的内容是否可整合到1.1部分，    小结现存问题；后在介绍1.2研究进展时总结当前国内外在进行文化交流线路模拟时的进展，可突出论文要采用怎么样的国际前沿方法手段去模拟研究区的交流线路。    1.3部分可阐释研究内容及技术路线。    不足之处：1、论文正文整体表述的逻辑框架和思路均较为清晰、完整。但是目前的技术路线过于简略和粗糙，未能充分地完整展">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-05-22T04:04:00.820Z">
+<meta property="article:modified_time" content="2023-05-22T04:03:45.077Z">
+<meta property="article:author" content="Leo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/05/22/CS/OOP-Design%20Patterns/Actions_%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6_Leo_20230522120400/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Leo\'s Blog！！！',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-05-22 12:03:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">35</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Leo's Blog！！！"><span class="site-name">Leo's Blog！！！</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-05-22T04:04:00.820Z" title="Created 2023-05-22 12:04:00">2023-05-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-05-22T04:03:45.077Z" title="Updated 2023-05-22 12:03:45">2023-05-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><ul>
+<li><p><input disabled="" type="checkbox"> 
+1.3科学问题与选题部分：介绍论文选题背景的内容是否可整合到1.1部分，</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+小结现存问题；后在介绍1.2研究进展时总结当前国内外在进行文化交流线路模拟时的进展，可突出论文要采用怎么样的国际前沿方法手段去模拟研究区的交流线路。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+1.3部分可阐释研究内容及技术路线。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+不足之处：1、论文正文整体表述的逻辑框架和思路均较为清晰、完整。但是目前的技术路线过于简略和粗糙，未能充分地完整展示本研究从关键科学问题、到主要研究目标、研究内容、主要研究方法以及预期成效等。建议重新绘制技术路线图。</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+图3-2在图上或图说明中最好添加上每幅图具体展示的内容，尽管现在放大左下角的图例也知道具体是什么，但太不明显；</p>
+<p>  增加了小标题突显</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+2、本文的主题是青藏高原史前农业交流路线模拟，那么对于主要影响因子的选择不仅要包括影响人类生存、迁徙的指标，也应该包括影响农业生产活动的关键因子。但论文只选择了海拔、坡度、坡向、植被、地表起伏度、地表曲率、距水源距离等7项自然因子。气象、降水等直接影响农业生产活动因子并未列入。论文对于选择目前7项指标缺乏应有的合理说明与解释。建议进一步补充说明指标遴选依据与原则。</p>
+<ol>
+<li><p><strong>海拔</strong>：海拔影响一个区域可以种植的作物类型，因为不同的作物有不同的温度需求。它也影响人类定居点的密度，因为更高的海拔往往有更严酷的生活条件，因此能够支持的人口数量较少。在模拟中选择海拔作为一个因素可能是基于这些考虑​<a target="_blank" rel="noopener" href="https://www.khanacademy.org/humanities/world-history/medieval-times/migration/a/migration-focus-block">1</a>​。</p>
+</li>
+<li><p><strong>坡度和坡向</strong>：坡度和坡向可以显著影响农业生产力。陡峭的坡度可能导致土壤侵蚀增加，这会对作物产量产生负面影响。坡向，或者说坡面朝向的方向，可以影响一块地接收到的阳光量，从而影响可以种植的作物类型。</p>
+</li>
+<li><p><strong>植被</strong>：植被的存在和类型可以作为一个区域适合农业的代理指标。茂密的植被可能表明土壤肥沃，作物生长条件良好。</p>
+</li>
+<li><p><strong>地表起伏度和曲率</strong>：这些因素可以影响水的排水情况，这对于耕作至关重要。地表起伏度高或曲率极端的地区可能会因为可能的积水问题或水分不足而对农业构成挑战。</p>
+</li>
+<li><p><strong>距水源的距离</strong>：接近水源对人类定居点和农业都至关重要。水是人类生存的基本需求，也是农业灌溉所需的。</p>
+</li>
+</ol>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+5.1讨论部分仅涉及选址问题，未涉及农业人口为什么迁移。<br>  This could be due to a variety of factors, including environmental changes, resource availability, or social and cultural developments. For a detailed understanding,</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+5.3部分为什么要加入论文中？</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+结论总结不到位。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+部分引文或内容阐述时缺参考文献，如第一章绪论第一段提到很多新技术的应用，只给出了同位素技术引用的参考文献；</p>
+</li>
+<li><p><input checked="" disabled="" type="checkbox"> 
+第三章图3-1引用的遗址点数据应有参考文献</p>
+<ul>
+<li>3.1.2.1最后一句有列出参考文献</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+参考文献格式有些小问题，建议调整，如个数卷前的0，学位论文后用“；”还是“.”，出版社前要有出版地等。</p>
+</li>
+</ul>
+<p>同意你对大脑的看法，但是你举的这个例子，情况一：这个方程是一个即兴题目，那我们所列的”笔记“叫草稿演算似乎更为合适，情况二：这个方程是一个课本例题，那么准备一套详实的教辅资料似乎更为高效。还是从对大脑的理解出发，我觉得我们的优势在于CPU（广义），也就是对数据的理解、认知上</p>
+<p>引用格式，，名字、年代、期刊<br>技术路线和那个图分开<br>技术路线变横</p>
+<p>引言<br>加点字<br>8放大字</p>
+<ul>
+<li><input disabled="" type="checkbox"> 答辩资格审核表</li>
+<li><input disabled="" type="checkbox"> 答辩委员会成员审批表</li>
+<li><input disabled="" type="checkbox"> 张成君 赵晖 张家武 夏敦胜 彭廷江</li>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">Leo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/05/22/CS/OOP-Design%20Patterns/Actions_%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6_Leo_20230522120400/">http://example.com/2023/05/22/CS/OOP-Design%20Patterns/Actions_%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6_Leo_20230522120400/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/22/CS/OOP-Design%20Patterns/Actions_%E5%86%B2%E7%AA%81%E6%96%87%E4%BB%B6_Leo_20230522120441/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2023/05/17/English/Compare%20&amp;%20Conquer/May%2016,2023/" title=""><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Leo</div><div class="author-info__description">Boundless Bytes: Code & Language</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">101</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">35</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/28/English/Vocabulary/burst%20explode/" title="No title">No title</a><time datetime="2023-05-28T01:41:38.176Z" title="Created 2023-05-28 09:41:38">2023-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/28/English/Vocabulary/spending%20expense/" title="No title">No title</a><time datetime="2023-05-28T01:01:23.410Z" title="Created 2023-05-28 09:01:23">2023-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/28/English/Vocabulary/posture%20gesture/" title="No title">No title</a><time datetime="2023-05-28T01:01:10.196Z" title="Created 2023-05-28 09:01:10">2023-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/28/English/Vocabulary/schema%20pattern%20mode/" title="No title">No title</a><time datetime="2023-05-28T00:51:40.839Z" title="Created 2023-05-28 08:51:40">2023-05-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/05/28/English/Vocabulary/Proportion%20ritio/" title="No title">No title</a><time datetime="2023-05-28T00:49:52.221Z" title="Created 2023-05-28 08:49:52">2023-05-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Leo</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
